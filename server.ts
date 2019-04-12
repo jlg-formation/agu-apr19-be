@@ -1,6 +1,7 @@
 import * as express from 'express';
 import * as serveIndex from 'serve-index';
 import * as cors from 'cors';
+import { wsRouter } from './ws-router';
 
 const app = express();
 
@@ -10,6 +11,7 @@ app.use(function (req, res, next) {
 });
 
 app.use(cors());
+app.use('/ws', wsRouter);
 
 const root = '../exo/dist/exo';
 app.use(express.static(root));
