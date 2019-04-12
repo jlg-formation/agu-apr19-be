@@ -1,5 +1,6 @@
 import * as express from 'express';
 import * as serveIndex from 'serve-index';
+import * as cors from 'cors';
 
 const app = express();
 
@@ -7,6 +8,8 @@ app.use(function (req, res, next) {
     console.log('req.url', req.url);
     next();
 });
+
+app.use(cors());
 
 const root = '../exo/dist/exo';
 app.use(express.static(root));
@@ -19,7 +22,7 @@ app.use(function (req, res, next) {
     next();
 });
 
-const port = 8000;
+const port = 8080;
 app.listen(port, function () {
     console.log('server started on port ' + port);
 });
