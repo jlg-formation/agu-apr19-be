@@ -10,6 +10,12 @@ app.use((req, res, next) => {
 	next();
 });
 
+app.use((req, res, next) => {
+    setTimeout(() => {
+        next();
+    }, 1000);
+});
+
 
 
 const resources = ['cats'];
